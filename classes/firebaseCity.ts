@@ -1,4 +1,4 @@
-class City {
+export default class City {
   city: string;
   county: string;
   country: string;
