@@ -1,7 +1,7 @@
 import { AppProps } from "next/dist/next-server/lib/router/router";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
-import Loading from "../components/misc/loading";
 import "@fontsource/montserrat";
+import "../libs/firebase";
 function MyApp({ Component, pageProps }: AppProps) {
   const theme = extendTheme({
     fonts: {
@@ -11,9 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   });
   return (
     <ChakraProvider theme={theme}>
-      <Loading>
-        <Component {...pageProps} />
-      </Loading>
+      <Component {...pageProps} />
     </ChakraProvider>
   );
 }
