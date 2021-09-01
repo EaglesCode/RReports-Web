@@ -8,6 +8,7 @@ import {
   where,
 } from "firebase/firestore";
 import { getAuth } from "@firebase/auth";
+import City from "../../classes/firebaseCity";
 const DashboradIndex = () => {
   const db = getFirestore();
   const [location, setLocation] = useState<City | null>();
