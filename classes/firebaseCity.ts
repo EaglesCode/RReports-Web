@@ -14,4 +14,14 @@ export default class City {
     this.county = county;
     this.mayorEmail = mayorEmail;
   }
+  isEmpty() {
+    if (
+      this.city == "" ||
+      this.country ||
+      this.county == "" ||
+      this.mayorEmail == ""
+    )
+      return true;
+    return false;
+  }
 }

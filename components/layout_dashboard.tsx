@@ -1,25 +1,15 @@
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { useRouter } from "next/dist/client/router";
-import React, { useEffect } from "react";
+import { Box, Heading } from "@chakra-ui/react";
+import React from "react";
 import Loading from "./misc/loading";
 
 const DashboardLayout = (props: { children: any }) => {
-  const router = useRouter();
-  const auth = getAuth();
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (!user || user.getIdToken() === undefined) {
-        router.push("/login");
-      }
-    });
-  });
   return (
-    <Loading>
-      <div>
-        Dashboard...
-        {props.children}
-      </div>
-    </Loading>
+    <div>
+      <Box w="100%" backgroundColor="#23374D" color="whiteAlpha.800" mb="6">
+        <Heading>Dashboard...</Heading>
+      </Box>
+      {props.children}
+    </div>
   );
 };
 

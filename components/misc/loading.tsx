@@ -8,13 +8,24 @@ import {
 } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
 import "@fontsource/bebas-neue";
+import { useRouter } from "next/dist/client/router";
+import firebase from "../../libs/firebase";
 const Loading = (props: { children: any }) => {
   const [loading, setLoading] = useState(true);
+  const router = useRouter();
   useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 1400);
-  }, [loading]);
+    firebase.auth().onAuthStateChanged((user) => {
+      if (!user && router.pathname.includes("dashboard")) {
+        setLoading(true);
+        router.push("/login");
+        // ...
+      } else {
+        setTimeout(() => {
+          setLoading(false);
+        }, 1000);
+      }
+    });
+  }, [loading, router]);
   if (loading == true)
     return (
       <Box backgroundColor="grey.50" height="100vh">
