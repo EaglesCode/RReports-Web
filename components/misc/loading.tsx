@@ -18,7 +18,9 @@ const Loading = (props: { children: any }) => {
       if (!user && router.pathname.includes("dashboard")) {
         setLoading(true);
         router.push("/login");
-        // ...
+      } else if (user && router.pathname == "/login") {
+        setLoading(true);
+        router.push("/dashboard");
       } else {
         setTimeout(() => {
           setLoading(false);

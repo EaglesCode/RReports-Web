@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import DashboardLayout from "../../components/layout_dashboard";
 
-import ListReports from "../../components/dashboard/list_reports";
+import ListReports from "../../components/dashboard/list-reports";
+import firebase from "../../libs/firebase";
 const DashboardIndex = () => {
   return (
     <DashboardLayout>
-      <ListReports />
+      {location && <ListReports email={firebase.auth().currentUser.email} />}
     </DashboardLayout>
   );
 };

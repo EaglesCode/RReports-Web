@@ -1,15 +1,28 @@
-import { Box, Heading } from "@chakra-ui/react";
-import React from "react";
-import Loading from "./misc/loading";
+import { Box, Stack, useMediaQuery } from "@chakra-ui/react";
+import React, { createContext } from "react";
+import { useDisclosure, UseDisclosureReturn } from "@chakra-ui/hooks";
+import Sidebar from "./sidebar";
+import MobileSidebar from "./sidebar/mobile";
+import Navbar from "./navbar";
+
+export const NavContext = createContext<UseDisclosureReturn>(null);
 
 const DashboardLayout = (props: { children: any }) => {
+  const sidebarState = useDisclosure();
+  const [isSmallScreen] = useMediaQuery("(max-width: 768px)");
   return (
-    <div>
-      <Box w="100%" backgroundColor="#23374D" color="whiteAlpha.800" mb="6">
-        <Heading>Dashboard...</Heading>
+    <NavContext.Provider value={sidebarState}>
+      <Navbar />
+      <Box pos="relative" h="max-content">
+        <Stack direction="row">
+          <Sidebar />
+          {isSmallScreen && <MobileSidebar />}
+          <Box w="full" h="90vh" overflowY="scroll" borderRadius="20" p={2}>
+            {props.children}
+          </Box>
+        </Stack>
       </Box>
-      {props.children}
-    </div>
+    </NavContext.Provider>
   );
 };
 
