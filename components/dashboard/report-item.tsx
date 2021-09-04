@@ -1,9 +1,9 @@
-import { Divider, Flex } from "@chakra-ui/layout";
 import React from "react";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import Report from "../../classes/firebaseReports";
-import { Spacer, Text } from "@chakra-ui/react";
+import NextLink from "next/link";
+import { Spacer, Text, Divider, Flex, Button } from "@chakra-ui/react";
 const ReportItem = (props: { report: Report }) => {
   const report = props.report;
   dayjs.extend(relativeTime);
@@ -15,21 +15,31 @@ const ReportItem = (props: { report: Report }) => {
       : dayjs(date).format("D MMM");
   return (
     <div>
-      <Flex>
-        <Text fontWeight="black" maxW="14vw" isTruncated mr="8">
-          {report.email}
-        </Text>
-        <Text fontWeight="bold" mr="1">
-          {report.category}
-        </Text>
-        <Text maxW="45vw" color="#808080" isTruncated>
-          {`- ${report.description}`}
-        </Text>
-        <Spacer />
-        <Text noOfLines={1} isTruncated={false}>
-          {fDate}
-        </Text>
-      </Flex>
+      <NextLink href={`/dashboard/reports/${report.id}`}>
+        <Button
+          width="full"
+          bgColor="transparent"
+          p="1"
+          h="min-content"
+          borderRadius="0"
+        >
+          <Flex w="full">
+            <Text fontWeight="black" maxW="14vw" isTruncated mr="8">
+              {report.email}
+            </Text>
+            <Text fontWeight="bold" mr="1">
+              {report.category}
+            </Text>
+            <Text maxW="45vw" color="#808080" isTruncated>
+              {`- ${report.description}`}
+            </Text>
+            <Spacer />
+            <Text noOfLines={1} isTruncated={false}>
+              {fDate}
+            </Text>
+          </Flex>
+        </Button>
+      </NextLink>
       <Divider color="#E5E5E5" />
     </div>
   );
