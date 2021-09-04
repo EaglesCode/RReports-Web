@@ -1,20 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useCollection } from "react-firebase-hooks/firestore";
 import City from "../../classes/firebaseCity";
 import firebase from "../../libs/firebase";
 import Report from "../../classes/firebaseReports";
-import {
-  Center,
-  CircularProgress,
-  Flex,
-  List,
-  ListItem,
-  Spacer,
-} from "@chakra-ui/react";
+import { Center, CircularProgress, Flex, Spacer } from "@chakra-ui/react";
 import { RiAlertLine } from "react-icons/ri";
-import ReportItem from "./report-item";
+
 import ReportsList from "./reports-list";
-const ListReports = (props: { email: string }) => {
+const ListReports = (props: { email: string; reportCategory: Number }) => {
   const fiCity = firebase
     .firestore()
     .collection("cities")
@@ -47,7 +40,9 @@ const ListReports = (props: { email: string }) => {
           <CircularProgress isIndeterminate color="red" />
         </Center>
       )}
-      {cities && <ReportsList location={RReports()} />}
+      {cities && (
+        <ReportsList location={RReports()} status={props.reportCategory} />
+      )}
     </div>
   );
 };

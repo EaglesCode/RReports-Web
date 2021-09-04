@@ -8,7 +8,6 @@ const ReportItem = (props: { report: Report }) => {
   const report = props.report;
   dayjs.extend(relativeTime);
   const date = report.upload_date.toDate();
-  console.log(dayjs(date).fromNow());
 
   const fDate =
     dayjs(date).format("DD/MM/YYYY") == dayjs().format("DD/MM/YYYY")
@@ -17,18 +16,19 @@ const ReportItem = (props: { report: Report }) => {
   return (
     <div>
       <Flex>
-        <Text fontWeight="black" maxW="14vw" isTruncated mr="10">
+        <Text fontWeight="black" maxW="14vw" isTruncated mr="8">
           {report.email}
         </Text>
-
         <Text fontWeight="bold" mr="1">
           {report.category}
         </Text>
-        <Text w="50vw" color="#808080" isTruncated>
+        <Text maxW="45vw" color="#808080" isTruncated>
           {`- ${report.description}`}
         </Text>
         <Spacer />
-        <Text>{fDate}</Text>
+        <Text noOfLines={1} isTruncated={false}>
+          {fDate}
+        </Text>
       </Flex>
       <Divider color="#E5E5E5" />
     </div>

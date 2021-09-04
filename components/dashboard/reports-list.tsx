@@ -14,12 +14,13 @@ import City from "../../classes/firebaseCity";
 import Report from "../../classes/firebaseReports";
 import ReportItem from "./report-item";
 
-const ReportsList = (props: { location: City }) => {
+const ReportsList = (props: { location: City; status: Number }) => {
   const location = props.location;
   const fiReports = firebase
     .firestore()
     .collection("reports")
     .where("city", "==", location.city)
+    .where("status", "==", props.status)
     .where("county", "==", location.county)
     .where("country", "==", location.country);
   const [reports, loading, error] = useCollection(fiReports);
@@ -28,9 +29,10 @@ const ReportsList = (props: { location: City }) => {
 
     reports.forEach((report) =>
       ///@ts-ignore
-      list.push(new Report(report.data()))
+
+      list.push(new Report({ ...report.data(), id: report.id }))
     );
-    console.log(list);
+
     return list;
   };
   return (

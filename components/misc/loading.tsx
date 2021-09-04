@@ -35,12 +35,12 @@ const Loading = (props: { children: any }) => {
           <CircularProgress
             isIndeterminate
             color="red.400"
-            size="540"
+            size="50vh"
             thickness="4px"
           >
             <CircularProgressLabel>
               <Center>
-                <Image src="/logo.svg" alt="" height="400" />
+                <Image src="/logo.svg" alt="" height="40vh" />
               </Center>
             </CircularProgressLabel>
           </CircularProgress>

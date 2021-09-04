@@ -55,8 +55,12 @@ export const routes = [
     icon: RiLineChartLine,
   },
   { name: "Sesizari primite", href: "/dashboard", icon: RiInboxLine },
-  { name: "Cu stea", href: "/dashboard/starred", icon: HiOutlineStar },
   { name: "Rezolvate", href: "/dashboard/solved", icon: HiOutlineCheckCircle },
-  { name: "In curs", href: "/dashboard/solving", icon: HiOutlineDocument },
+  {
+    name: "In curs de rezolvare",
+    href: "/dashboard/solving",
+    icon: HiOutlineDocument,
+  },
+  { name: "Cu stea", href: "/dashboard/starred", icon: HiOutlineStar },
   { name: "Cos de gunoi", href: "/dashboard/rejected", icon: BiTrash },
 ];
