@@ -10,7 +10,7 @@ import {
   FiInbox,
   FiPower,
   FiStar,
-  FiTrash,
+  FiTrash2,
 } from "react-icons/fi";
 import { useRouter } from "next/router";
 import { NavContext } from "../layout_dashboard";
@@ -64,5 +64,5 @@ export const routes = [
     icon: FiFile,
   },
   { name: "Cu stea", href: "/dashboard/starred", icon: FiStar },
-  { name: "Cos de gunoi", href: "/dashboard/rejected", icon: FiTrash },
+  { name: "Cos de gunoi", href: "/dashboard/rejected", icon: FiTrash2 },
 ];
