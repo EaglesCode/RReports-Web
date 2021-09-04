@@ -2,7 +2,7 @@ import { Stack } from "@chakra-ui/layout";
 import React, { useContext, useEffect } from "react";
 import NavItem from "./nav-item";
 import SectionDivider from "./section-divider";
-import { FiPower, FiSettings } from "react-icons/fi";
+import { FiPower } from "react-icons/fi";
 import { useRouter } from "next/router";
 import { NavContext } from "../layout_dashboard";
 import { routes } from ".";
@@ -39,7 +39,6 @@ const MobileSidebar = () => {
             ))}
 
             <SectionDivider />
-            <NavItem name="Setari" icon={FiSettings} />
             <NavItem name="Deconectare" icon={FiPower} />
           </Stack>
         </DrawerContent>
