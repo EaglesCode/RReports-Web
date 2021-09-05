@@ -4,6 +4,7 @@ import { useDisclosure, UseDisclosureReturn } from "@chakra-ui/hooks";
 import Sidebar from "./sidebar";
 import MobileSidebar from "./sidebar/mobile";
 import Navbar from "./navbar";
+import Head from "next/head";
 
 export const NavContext = createContext<UseDisclosureReturn>(null);
 
@@ -12,6 +13,10 @@ const DashboardLayout = (props: { children: any }) => {
   const [isSmallScreen] = useMediaQuery("(max-width: 768px)");
   return (
     <NavContext.Provider value={sidebarState}>
+      <Head>
+        <title>RReports Dashboard</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Navbar />
       <Box pos="relative" h="max-content">
         <Stack direction="row">
