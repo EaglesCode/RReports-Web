@@ -8,10 +8,11 @@ const Navbar = () => {
   return (
     <Flex
       layerStyle="card"
-      h="4.5rem"
+      h="8vh"
       roundedBottom={[, , "2xl"]}
       alignItems="center"
       p={5}
+      shadow="md"
     >
       <Stack direction="row" w="full" alignItems="center" spacing={[0, , 8]}>
         <MenuButton />

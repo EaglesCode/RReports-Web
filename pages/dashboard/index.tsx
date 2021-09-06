@@ -6,12 +6,10 @@ import firebase from "../../libs/firebase";
 const DashboardIndex = () => {
   return (
     <DashboardLayout>
-      {location && (
-        <ListReports
-          reportCategory={0}
-          email={firebase.auth().currentUser.email}
-        />
-      )}
+      <ListReports
+        reportCategory={0}
+        email={firebase.auth().currentUser.email}
+      />
     </DashboardLayout>
   );
 };

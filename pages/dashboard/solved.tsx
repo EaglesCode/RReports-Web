@@ -5,12 +5,10 @@ import firebase from "../../libs/firebase";
 const DashboardSolved = () => {
   return (
     <DashboardLayout>
-      {location && (
-        <ListReports
-          reportCategory={2}
-          email={firebase.auth().currentUser.email}
-        />
-      )}
+      <ListReports
+        reportCategory={2}
+        email={firebase.auth().currentUser.email}
+      />
     </DashboardLayout>
   );
 };

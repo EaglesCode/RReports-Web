@@ -4,7 +4,7 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import Report from "../../classes/firebaseReports";
 import NextLink from "next/link";
 import { Spacer, Text, Divider, Flex, Button } from "@chakra-ui/react";
-const ReportItem = (props: { report: Report }) => {
+const ReportItem = (props: { report: Report; id: string }) => {
   const report = props.report;
   dayjs.extend(relativeTime);
   const date = report.upload_date.toDate();
@@ -15,7 +15,7 @@ const ReportItem = (props: { report: Report }) => {
       : dayjs(date).format("D MMM");
   return (
     <div>
-      <NextLink href={`/dashboard/reports/${report.id}`}>
+      <NextLink href={`/dashboard/reports/${props.id}`}>
         <Button
           width="full"
           bgColor="transparent"

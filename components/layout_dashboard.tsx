@@ -5,7 +5,6 @@ import Sidebar from "./sidebar";
 import MobileSidebar from "./sidebar/mobile";
 import Navbar from "./navbar";
 import Head from "next/head";
-
 export const NavContext = createContext<UseDisclosureReturn>(null);
 
 const DashboardLayout = (props: { children: any }) => {
@@ -22,7 +21,7 @@ const DashboardLayout = (props: { children: any }) => {
         <Stack direction="row">
           <Sidebar />
           {isSmallScreen && <MobileSidebar />}
-          <Box w="full" h="90vh" overflowY="scroll" borderRadius="20" p={2}>
+          <Box w="full" h="92vh" overflowY="auto" p={2}>
             {props.children}
           </Box>
         </Stack>

@@ -15,7 +15,7 @@ export default class Report {
   status: Number;
   upload_date: Timestamp;
   email: string;
-  id: string;
+  starred: boolean;
 
   constructor({
     category,
@@ -29,7 +29,7 @@ export default class Report {
     email,
     upload_date,
     status,
-    id,
+    starred,
   }) {
     this.category = category;
     this.city = city;
@@ -42,6 +42,6 @@ export default class Report {
     this.email = email;
     this.upload_date = upload_date;
     this.status = status;
-    this.id = id;
+    this.starred = starred ?? false;
   }
 }

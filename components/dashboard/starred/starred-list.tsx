@@ -10,24 +10,24 @@ import firebase from "firebase";
 import React from "react";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { RiAlertLine } from "react-icons/ri";
-import City from "../../classes/firebaseCity";
-import Report from "../../classes/firebaseReports";
-import ReportItem from "./report-item";
+import City from "../../../classes/firebaseCity";
+import Report from "../../../classes/firebaseReports";
+import ReportItem from "../report-item";
 
-const ReportsList = (props: { location: City; status: Number }) => {
+const StarredList = (props: { location: City }) => {
   const location = props.location;
   const fiReports = firebase
     .firestore()
     .collection("reports")
     .where("city", "==", location.city)
-    .where("status", "==", props.status)
+    .where("starred", "==", true)
     .where("county", "==", location.county)
     .where("country", "==", location.country);
-  const [reports, loading, error] = useCollection(fiReports);
   interface RReportz {
     report: Report;
     id: string;
   }
+  const [reports, loading, error] = useCollection(fiReports);
   const RReports = () => {
     let list = [];
 
@@ -71,4 +71,4 @@ const ReportsList = (props: { location: City; status: Number }) => {
   );
 };
 
-export default ReportsList;
+export default StarredList;

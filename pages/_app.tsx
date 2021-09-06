@@ -1,6 +1,7 @@
 import { AppProps } from "next/dist/next-server/lib/router/router";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import "@fontsource/montserrat";
+import "../styles/globals.css";
 import "../libs/firebase";
 import Loading from "../components/misc/loading";
 function MyApp({ Component, pageProps }: AppProps) {
