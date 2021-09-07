@@ -21,6 +21,7 @@ const RReportPage = (props: { report: Report; location: City }) => {
     return (
       <>
         <Wrap spacing="3">
+          <OptionsCard report={report} />
           <WrapItem>
             <DetailsCard
               status={report.status}
@@ -28,6 +29,7 @@ const RReportPage = (props: { report: Report; location: City }) => {
               description={report.description}
             />
           </WrapItem>
+
           <WrapItem>
             <LocationCard
               street={report.street}
@@ -38,7 +40,7 @@ const RReportPage = (props: { report: Report; location: City }) => {
             />
           </WrapItem>
         </Wrap>
-        <OptionsCard report={report} />
+
         <ImagesCard images={report.images} />
       </>
     );

@@ -1,4 +1,4 @@
-import { Button, HStack } from "@chakra-ui/react";
+import { Button, HStack, Wrap } from "@chakra-ui/react";
 import firebase from "firebase";
 import React, { useContext } from "react";
 import { FiCheckCircle, FiFile, FiStar, FiTrash2 } from "react-icons/fi";
@@ -37,32 +37,39 @@ const OptionsCard = (props: { report: Report }) => {
       .set({ ...props.report, status: 1 });
   };
   return (
-    <HStack>
-      <Button colorScheme="gray" onClick={() => starReport()}>
-        <FiStar fill={starred ? "yellow" : "transparent"} />
+    <Wrap>
+      <Button
+        colorScheme="gray"
+        onClick={() => starReport()}
+        leftIcon={<FiStar fill={starred ? "yellow" : "transparent"} />}
+      >
+        {!starred ? "Adauga" : "Sterge"} Stea
       </Button>
       <Button
         colorScheme="red"
         disabled={props.report.status == 3}
         onClick={() => trashReport()}
+        leftIcon={<FiTrash2 />}
       >
-        <FiTrash2 />
+        Adauga la cos
       </Button>
       <Button
         colorScheme="green"
         disabled={props.report.status == 2}
         onClick={() => solveReport()}
+        leftIcon={<FiCheckCircle />}
       >
-        <FiCheckCircle />
+        Rezolvat
       </Button>
       <Button
         colorScheme="blue"
         disabled={props.report.status == 1}
         onClick={() => workinReport()}
+        leftIcon={<FiFile />}
       >
-        <FiFile />
+        Curs de rezolvare
       </Button>
-    </HStack>
+    </Wrap>
   );
 };
 
