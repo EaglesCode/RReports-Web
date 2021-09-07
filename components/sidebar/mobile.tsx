@@ -39,7 +39,11 @@ const MobileSidebar = () => {
             ))}
 
             <SectionDivider />
-            <NavItem name="Deconectare" icon={FiPower} />
+            <NavItem
+              name="Deconectare"
+              icon={FiPower}
+              href="/dashboard/logout"
+            />
           </Stack>
         </DrawerContent>
       </DrawerOverlay>

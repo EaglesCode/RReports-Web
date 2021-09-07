@@ -43,7 +43,7 @@ const Sidebar = () => {
       <Spacer />
       <Divider display={{ md: "none" }} />
 
-      <NavAction name="Deconectare" icon={FiPower} />
+      <NavAction name="Deconectare" icon={FiPower} href="/dashboard/logout" />
     </Stack>
   );
 };

@@ -11,7 +11,6 @@ import {
 import { useRouter } from "next/dist/client/router";
 import React, { useState } from "react";
 
-import Loading from "../components/misc/loading";
 import firebase from "../libs/firebase";
 
 const Login = () => {
