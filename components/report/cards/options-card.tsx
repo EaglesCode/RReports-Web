@@ -39,9 +39,9 @@ const OptionsCard = (props: { report: Report }) => {
   return (
     <Wrap>
       <Button
-        colorScheme="gray"
+        colorScheme="yellow"
         onClick={() => starReport()}
-        leftIcon={<FiStar fill={starred ? "yellow" : "transparent"} />}
+        leftIcon={<FiStar fill={starred ? "yellow" : "white"} />}
       >
         {!starred ? "Adauga" : "Sterge"} Stea
       </Button>

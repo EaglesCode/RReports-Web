@@ -26,8 +26,9 @@ const Sidebar = () => {
       layerStyle="card"
       w={!isOpen ? "60px" : "300px"}
       transition="width .4s ease-in-out"
-      ml={2}
       h="full"
+      mt={3}
+      ml={2}
       fontSize="sm"
       display={["none", , "flex"]}
       overflowX={isOpen ? "clip" : "initial"}

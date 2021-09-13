@@ -21,7 +21,7 @@ const DashboardLayout = (props: { children: any }) => {
         <Stack direction="row">
           <Sidebar />
           {isSmallScreen && <MobileSidebar />}
-          <Box w="full" h="92vh" overflowY="auto" p={2}>
+          <Box w="full" h="92vh" overflowY="auto" p={2} bgColor="#EFF3F9">
             {props.children}
           </Box>
         </Stack>

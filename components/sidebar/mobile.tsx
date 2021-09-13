@@ -6,7 +6,6 @@ import { FiPower } from "react-icons/fi";
 import { useRouter } from "next/router";
 import { NavContext } from "../layout_dashboard";
 import { routes } from ".";
-import Search from "../navbar/search";
 import {
   Drawer,
   DrawerCloseButton,
@@ -29,7 +28,7 @@ const MobileSidebar = () => {
         <DrawerContent layerStyle="neutral" py={8}>
           <Stack spacing={2} fontSize="sm">
             <DrawerCloseButton />
-            <Search w="full" py={2} px={5} />
+
             {routes.map((props, rid) => (
               <NavItem
                 key={`nav-item-${rid}`}
