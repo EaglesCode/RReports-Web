@@ -41,7 +41,7 @@ export const pieData = [
   },
   {
     label: "parks",
-    id: "Spatii verzi/Parcuri",
+    id: "Spatii verzi / Parcuri",
     value: 6242,
     color: "hsl(214, 35%, 37%)",
   },

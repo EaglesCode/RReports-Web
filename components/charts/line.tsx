@@ -12,18 +12,18 @@ const LineChart = () => {
       </Heading>
       <Box h={{ base: "40vh", lg: "450px" }}>
         <ResponsiveLine
-          curve="monotoneX"
+          curve="catmullRom"
           margin={{ top: 30, bottom: 30, left: 30, right: 10 }}
           colors="hsl(214, 35%, 37%)"
           pointColor="hsl(358, 97%, 48%)"
           useMesh={true}
           axisLeft={{
-            legend: "linear scale",
+            legend: "Sesizari",
             legendOffset: 12,
           }}
           axisBottom={{
             tickValues: "every 2 days",
-            legend: "time scale",
+            legend: "Luni",
             legendOffset: -12,
           }}
           data={lineData}
