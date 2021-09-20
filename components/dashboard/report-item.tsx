@@ -4,6 +4,7 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import Report from "../../classes/firebaseReports";
 import NextLink from "next/link";
 import { Spacer, Text, Divider, Flex, Button } from "@chakra-ui/react";
+import categoryChooser from "../../libs/category-chooser";
 const ReportItem = (props: { report: Report; id: string }) => {
   const report = props.report;
   dayjs.extend(relativeTime);
@@ -28,7 +29,7 @@ const ReportItem = (props: { report: Report; id: string }) => {
               {report.email}
             </Text>
             <Text fontWeight="bold" mr="1">
-              {report.category}
+              {categoryChooser(report.category)}
             </Text>
             <Text maxW="45vw" color="#808080" isTruncated>
               {`- ${report.description}`}
